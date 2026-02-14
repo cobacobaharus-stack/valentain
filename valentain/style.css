@@ -1,0 +1,126 @@
+:root {
+  --bg1: #ffd9e6;
+  --bg2: #fff6f1;
+  --env: #f7a8ba;
+  --env-dark: #ef7d9a;
+  --paper: #fffdf8;
+  --text: #4d2c3d;
+  --accent: #d64973;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #ffe8f0 0%, transparent 40%),
+    radial-gradient(circle at 80% 15%, #ffe3ea 0%, transparent 35%),
+    linear-gradient(150deg, var(--bg1), var(--bg2));
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.letter-wrap {
+  width: min(460px, 100%);
+}
+
+.envelope {
+  width: 100%;
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.25s ease;
+}
+
+.envelope:hover {
+  transform: translateY(-4px);
+}
+
+.envelope-top {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: linear-gradient(145deg, #ffbdd0, #ff9cb9);
+  clip-path: polygon(0 100%, 50% 25%, 100% 100%);
+  border-radius: 14px 14px 0 0;
+}
+
+.envelope-paper {
+  display: grid;
+  gap: 8px;
+  text-align: center;
+  background: linear-gradient(160deg, var(--env), var(--env-dark));
+  color: #fff;
+  width: 100%;
+  padding: 28px 16px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 14px 30px rgba(180, 58, 100, 0.25);
+}
+
+.envelope-paper strong {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 6vw, 2rem);
+}
+
+.letter-content {
+  margin-top: 18px;
+  background: var(--paper);
+  border-radius: 14px;
+  padding: 22px 20px;
+  box-shadow: 0 14px 30px rgba(86, 31, 52, 0.12);
+  display: none;
+}
+
+.letter-content.open {
+  display: block;
+  animation: rise 0.45s ease;
+}
+
+.letter-content h1 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+}
+
+.letter-content p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
